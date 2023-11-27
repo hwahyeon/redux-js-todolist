@@ -19,7 +19,7 @@ const reducer = (state = [], action) => {
     case ADD_TODO:
       return [{ text: action.text, id: Date.now() }, ...state]; // Don't mutate the state like state.push(action.text)
     case DELETE_TODO:
-      return [];
+      return state.filter(toDo => toDo.id !== parseInt(action.id)); // filter make a new array
     default:
       return state;
   }
@@ -37,7 +37,7 @@ const dispatchAddToDo = (text) => {
 };
 
 const dispatchDeleteToDo = (e) => {
-  const id = e.target.parentNode.id;
+  const id = parseInt(e.target.parentNode.id);
   store.dispatch(deleteDoDo(id))
 }
 
