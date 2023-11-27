@@ -1,1 +1,1 @@
-# redux-todolist
+# To Do list with Vanilla-Redux
