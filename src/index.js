@@ -17,9 +17,11 @@ const deleteDoDo = id => {
 const reducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
-      return [{ text: action.text, id: Date.now() }, ...state]; // Don't mutate the state like state.push(action.text)
+      const newToDoObj = { text: action.text, id: Date.now() }
+      return [newToDoObj, ...state]; // Don't mutate the state like state.push(action.text)
     case DELETE_TODO:
-      return state.filter(toDo => toDo.id !== parseInt(action.id)); // filter make a new array
+      const deleteToDoObj = state.filter(toDo => toDo.id !== parseInt(action.id)); // filter create a new array for return
+      return deleteToDoObj
     default:
       return state;
   }
@@ -27,9 +29,9 @@ const reducer = (state = [], action) => {
 
 const store = createStore(reducer);
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 
 
 const dispatchAddToDo = (text) => {
@@ -57,7 +59,6 @@ const paintToDos = () => {
 }
 
 store.subscribe(paintToDos)
-
 
 const onSubmit = (e) => {
   e.preventDefault();
