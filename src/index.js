@@ -50,7 +50,7 @@ const paintToDos = () => {
   toDos.forEach((toDo) => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
-    btn.innerText = "DEL";
+    btn.innerText = "Del";
     btn.addEventListener("click", dispatchDeleteToDo);
     li.id = toDo.id;
     li.innerText = toDo.text;
