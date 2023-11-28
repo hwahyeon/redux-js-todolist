@@ -12,4 +12,4 @@ This simple To-Do application is built using Vanilla Redux for state management.
 
 ## Usage
 - Adding a To-Do: Enter the text in the input field and submit the form.
-- Deleting a To-Do: Click the "DEL" button next to the to-do item you wish to delete.
+- Deleting a To-Do: Click the "Del" button next to the to-do item you wish to delete.
